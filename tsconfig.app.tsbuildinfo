@@ -1,0 +1,1 @@
+{"root":["./src/main.tsx","./src/routeTree.gen.ts","./src/vite-env.d.ts","./src/components/AntHoney.tsx","./src/components/KonamiCode.ts","./src/components/MainSection.tsx","./src/components/NameHoverIndicator.tsx","./src/components/ScrollIndicator.tsx","./src/routes/__root.tsx","./src/routes/index.lazy.tsx","./src/store/nameStores.ts"],"version":"5.6.3"}

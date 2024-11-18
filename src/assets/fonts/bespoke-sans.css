@@ -1,0 +1,22 @@
+/**
+ * @license
+ *
+ * Font Family: Bespoke Sans
+ * Designed by: Jérémie Hornus, Théo Guillard, Morgane Pambrun, Alisa Nowak, Joachim Vu
+ * URL: https://www.fontshare.com/fonts/bespoke-sans
+ * © 2024 Indian Type Foundry
+ *
+ * Font Styles:
+ * Bespoke Sans Regular         
+ *
+*/
+
+@font-face {
+  font-family: 'BespokeSans-Regular';
+  src: url('./BespokeSans-Regular.woff2') format('woff2'),
+       url('./BespokeSans-Regular.woff') format('woff'),
+       url('./BespokeSans-Regular.ttf') format('truetype');
+       font-weight: 400;
+       font-display: swap;
+       font-style: normal;
+}
