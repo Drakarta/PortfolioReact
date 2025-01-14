@@ -7,7 +7,7 @@ import ant from "../assets/ant_flat.svg";
 import honey from "../assets/honey_pot_flat.svg";
 
 export default function AntHoney() {
-  const nameActive = useNameStore((state) => state.nameActive);
+  const nameActive = useNameStore((state) => state.nameActive);     
   const updateNameActive = useNameStore((state) => state.updateNameActive);
   const updateFirstActive = useNameStore((state) => state.updateFirstActive);
 
@@ -22,7 +22,7 @@ export default function AntHoney() {
   }, [nameActive, updateFirstActive]);
 
   return (
-    <div
+    <h1
       className="flex font-bespoke text-9xl text-secondary cursor-pointer"
       style={{
         lineHeight: "normal",
@@ -40,9 +40,9 @@ export default function AntHoney() {
           <img
             className="mt-3 w-32 h-32"
             style={{ maxWidth: "none", filter: "drop-shadow(3px 3px 5px black)" }}
-            
             src={ant}
             alt="ant"
+            aria-hidden="true"
           />
         </motion.div>
         <motion.div
@@ -65,6 +65,7 @@ export default function AntHoney() {
             style={{ maxWidth: "none", filter: "drop-shadow(3px 3px 5px black)" }}
             src={honey}
             alt="honey"
+            aria-hidden="true"
           />
         </motion.div>
         <motion.div
@@ -84,12 +85,13 @@ export default function AntHoney() {
               ease: "easeInOut",
               times: [0.3, 0.6, 0.9],
             }}
+            aria-hidden="true"
           >
             e
           </motion.div>
           <div style={{ filter: "drop-shadow(3px 3px 5px black)" }}>y</div>
         </motion.div>
       </div>
-    </div>
+    </h1>
   );
 }
