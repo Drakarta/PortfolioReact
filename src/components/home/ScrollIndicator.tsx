@@ -25,7 +25,7 @@ export default function ScrollIndicator() {
     <motion.div
       className="-right-4 bottom-8 opacity-30 absolute flex gap-1 font-sans text-lg text-orange-100 transform rotate-90 drop-shadow-md"
       initial={false}
-      animate={scrolled ? { bottom: "-80px" } : "initial"}
+      animate={scrolled ? { bottom: "-80px", opacity: "0%" } : "initial"}
       transition={{ duration: 0.75, ease: "easeInOut" }}
     >
       <div className="font-semibold">Scroll</div>
