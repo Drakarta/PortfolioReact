@@ -16,6 +16,7 @@ import HomeSection from "../components/HomeSection";
 import AboutSection from "../components/AboutSection";
 
 import grainy from "../assets/grainy.png";
+import ProjectSection from "../components/ProjectSection";
 
 function Index() {
   KonamiCode(() => {
@@ -32,6 +33,7 @@ function Index() {
         }}
       ></div>
       <HomeSection />
+      <ProjectSection />
       <AboutSection />
     </>
   );
