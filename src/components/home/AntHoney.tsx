@@ -23,7 +23,7 @@ export default function AntHoney() {
 
   return (
     <h1
-      className="flex font-bespoke text-9xl text-orange-100"
+      className="flex font-bespoke text-[12rem] text-orange-100"
       style={{
         lineHeight: "normal",
         letterSpacing: "-0.05em",
@@ -34,18 +34,18 @@ export default function AntHoney() {
       <div className="flex overflow-hidden pr-0.5">
         <motion.div
           initial={false}
-          animate={nameActive ? { x: "-8.5rem", width: 0 } : {}}
+          animate={nameActive ? { x: "-12.5rem", width: 0 } : {}}
           transition={{ duration: 0.5, ease: "easeInOut" }}
         >
           <img
-            className="w-32 h-32 mt-3 drop-shadow-md max-w-none"
+            className="w-48 h-48 mt-3 drop-shadow-md max-w-none"
             src={ant}
             alt="ant"
             aria-hidden="true"
           />
         </motion.div>
         <motion.div
-          className="drop-shadow-md"
+          className="drop-shadow-md pr-0.5"
           initial={{ width: "0rem", x: "0.5rem" }}
           animate={
             nameActive ? { x: "0rem", width: "auto", marginLeft: 0 } : {}
@@ -58,11 +58,11 @@ export default function AntHoney() {
       <div className="flex overflow-hidden pr-0.5">
         <motion.div
           initial={false}
-          animate={nameActive ? { x: "-8rem", width: 0 } : {}}
+          animate={nameActive ? { x: "-12rem", width: 0 } : {}}
           transition={{ duration: 0.5, ease: "easeInOut" }}
         >
           <img
-            className="w-32 h-32 mt-3 max-w-none drop-shadow-md"
+            className="w-48 h-48 mt-3 max-w-none drop-shadow-md"
             src={honey}
             alt="honey"
             aria-hidden="true"
@@ -77,12 +77,12 @@ export default function AntHoney() {
           <div className="drop-shadow-md">hon</div>
           <motion.div
             className="drop-shadow-md"
-            initial={{ width: "4rem", y: "8rem" }}
+            initial={{ width: "6rem", y: "12rem" }}
             animate={
               nameActive
                 ? {
-                    y: ["0rem", "8rem", "8rem"],
-                    width: ["4rem", "4rem", "0rem"],
+                    y: ["0rem", "12rem", "12rem"],
+                    width: ["6rem", "6rem", "0rem"],
                   }
                 : {}
             }
@@ -96,7 +96,7 @@ export default function AntHoney() {
           >
             e
           </motion.div>
-          <div className="drop-shadow-md">y</div>
+          <div className="drop-shadow-md pr-1">y</div>
         </motion.div>
       </div>
     </h1>

@@ -6,7 +6,7 @@ export default function HoverIndicator() {
   const firstActive = useNameStore((state) => state.firstActive);
   return (
     <motion.div
-      className="absolute flex content-center w-auto font-sans text-lg pointer-events-none pt-44 opacity-30 text-orange-100"
+      className="relative flex content-center w-auto font-sans text-lg pointer-events-none opacity-30 -top-10 text-orange-100"
       initial={false}
       animate={firstActive ? { opacity: 0 } : "initial"}
     >
