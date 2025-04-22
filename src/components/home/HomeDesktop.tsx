@@ -1,12 +1,30 @@
+import { useEffect, useState } from "react";
 import AntHoney from "./AntHoney";
-import HoverIndicator from "./HoverIndicator";
+
+function getResponsiveSize() {
+  if (typeof window !== "undefined") {
+    const w = window.innerWidth;
+    if (w >= 1280) return 12;
+    if (w >= 1024) return 10;
+  }
+  return 8;
+}
 
 export default function HomeDesktop() {
+  const [size, setSize] = useState(getResponsiveSize());
+
+  useEffect(() => {
+    const handleResize = () => {
+      setSize(getResponsiveSize());
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <div className="h-svh w-full grid grid-cols-5 grid-rows-5">
+    <div className="h-svh w-full grid-cols-5 grid-rows-5 hidden md:grid">
       <div className="flex flex-col items-center col-start-3 row-start-3">
-        <AntHoney />
-        <HoverIndicator />
+        <AntHoney key={`size-${size}`} size={size} />
       </div>
       <div className="col-start-2 col-end-5 row-start-5 flex">
         <p className="text-orange-100 text-md font-bespoke">

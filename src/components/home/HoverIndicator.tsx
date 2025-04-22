@@ -2,11 +2,14 @@ import { motion } from "motion/react";
 import { useNameStore } from "../../resources/stores";
 import { Icon } from "@iconify/react";
 
-export default function HoverIndicator() {
+export default function HoverIndicator(props: { size: number }) {
   const firstActive = useNameStore((state) => state.firstActive);
   return (
     <motion.div
-      className="relative flex content-center w-auto font-sans text-lg pointer-events-none opacity-30 -top-10 text-orange-100"
+      className="relative flex content-center w-auto font-sans text-lg pointer-events-none opacity-30 text-orange-100"
+      style={{
+        top: `-${props.size / 6}rem`,
+      }}
       initial={false}
       animate={firstActive ? { opacity: 0 } : "initial"}
     >
