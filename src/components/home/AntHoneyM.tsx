@@ -18,7 +18,7 @@ export default function AntHoneyM() {
         }}
         onClick={() => setNameActive(!nameActive)}
       >
-        <div className="flex flex-row">
+        <div className="flex flex-row justify-center">
           <img
             className="drop-shadow-md mt-3 max-w-none aspect-square"
             style={{
