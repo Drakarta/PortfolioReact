@@ -5,7 +5,7 @@ import ant from "../../assets/ant_flat.svg";
 import honey from "../../assets/honey_pot_flat.svg";
 
 export default function AntHoneyM() {
-  const size = 5;
+  const size = 4;
   const [nameActive, setNameActive] = useState(false);
   return (
     <div>
