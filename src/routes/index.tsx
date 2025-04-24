@@ -27,7 +27,7 @@ function Index() {
   return (
     <>
       <div
-        className="z-50 fixed flex flex-col justify-center items-center bg-[109px] bg-blend-multiply bg-repeat opacity-40 w-full h-svh mix-blend-multiply"
+        className="z-50 fixed flex flex-col justify-center items-center bg-[109px] bg-blend-multiply bg-repeat opacity-40 w-full h-lvh mix-blend-multiply"
         style={{
           backgroundImage: `url(${grainy})`,
         }}
