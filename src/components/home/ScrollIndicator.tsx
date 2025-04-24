@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 
 import { useNameStore } from "../../resources/stores";
-1;
+
 import { Icon } from "@iconify/react";
 
 export default function ScrollIndicator() {
@@ -23,7 +23,7 @@ export default function ScrollIndicator() {
 
   return (
     <motion.div
-      className="-right-4 bottom-8 opacity-30 absolute flex gap-1 font-sans text-lg text-orange-100 transform rotate-90 drop-shadow-md"
+      className="-right-4 bottom-8 absolute flex gap-1 opacity-30 drop-shadow-md font-sans text-orange-100 text-lg rotate-90 transform"
       initial={false}
       animate={scrolled ? { bottom: "-80px", opacity: "0%" } : "initial"}
       transition={{ duration: 0.75, ease: "easeInOut" }}

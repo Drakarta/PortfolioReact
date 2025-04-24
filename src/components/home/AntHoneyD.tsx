@@ -7,7 +7,7 @@ import ant from "../../assets/ant_flat.svg";
 import honey from "../../assets/honey_pot_flat.svg";
 import HoverIndicator from "./HoverIndicator";
 
-export default function AntHoney(props: { size: number }) {
+export default function AntHoney(props: Readonly<{ size: number }>) {
   const nameActive = useNameStore((state) => state.nameActive);
   const updateNameActive = useNameStore((state) => state.updateNameActive);
   const updateFirstActive = useNameStore((state) => state.updateFirstActive);
@@ -34,14 +34,14 @@ export default function AntHoney(props: { size: number }) {
         onMouseEnter={() => updateNameActive(true)}
         onMouseLeave={() => updateNameActive(false)}
       >
-        <div className="flex overflow-hidden pr-0.5">
+        <div className="flex pr-0.5 overflow-hidden">
           <motion.div
             initial={false}
             animate={nameActive ? { x: `-${props.size}.5rem`, width: 0 } : {}}
             transition={{ duration: 0.5, ease: "easeInOut" }}
           >
             <img
-              className="aspect-square mt-3 drop-shadow-md max-w-none"
+              className="drop-shadow-md mt-3 max-w-none aspect-square"
               style={{
                 width: `${props.size}rem`,
               }}
@@ -61,14 +61,14 @@ export default function AntHoney(props: { size: number }) {
             Ant
           </motion.div>
         </div>
-        <div className="flex overflow-hidden pr-0.5">
+        <div className="flex pr-0.5 overflow-hidden">
           <motion.div
             initial={false}
             animate={nameActive ? { x: `-${props.size}rem`, width: 0 } : {}}
             transition={{ duration: 0.5, ease: "easeInOut" }}
           >
             <img
-              className="aspect-square mt-3 max-w-none drop-shadow-md"
+              className="drop-shadow-md mt-3 max-w-none aspect-square"
               style={{
                 width: `${props.size}rem`,
               }}

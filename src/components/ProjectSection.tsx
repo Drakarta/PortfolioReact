@@ -1,6 +1,6 @@
 export default function ProjectSection() {
   return (
-    <section id="project" className="relative z-100 h-svh w-full">
+    <section id="project" className="z-100 relative w-full h-svh">
       <div></div>
     </section>
   );
