@@ -1,26 +1,23 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "motion/react";
-
-import { useNameStore } from "../../resources/stores";
 
 import ant from "../../assets/ant_flat.svg";
 import honey from "../../assets/honey_pot_flat.svg";
-import HoverIndicator from "./HoverIndicator";
+import AntHoneyIndicator from "./AntHoneyIndicator";
 
 export default function AntHoney(props: Readonly<{ size: number }>) {
-  const nameActive = useNameStore((state) => state.nameActive);
-  const updateNameActive = useNameStore((state) => state.updateNameActive);
-  const updateFirstActive = useNameStore((state) => state.updateFirstActive);
+  const [nameActive, setNameActive] = useState(false);
+  const [firstActive, setFirstActive] = useState(false);
 
   useEffect(() => {
     let timeout: ReturnType<typeof setTimeout> | undefined;
     if (nameActive) {
-      timeout = setTimeout(() => updateFirstActive(true), 250);
+      timeout = setTimeout(() => setFirstActive(true), 250);
     }
     return () => {
       if (timeout) clearTimeout(timeout);
     };
-  }, [nameActive, updateFirstActive]);
+  }, [nameActive, firstActive]);
 
   return (
     <>
@@ -31,8 +28,8 @@ export default function AntHoney(props: Readonly<{ size: number }>) {
           letterSpacing: "-0.05em",
           fontSize: `${props.size}rem`,
         }}
-        onMouseEnter={() => updateNameActive(true)}
-        onMouseLeave={() => updateNameActive(false)}
+        onMouseEnter={() => setNameActive(true)}
+        onMouseLeave={() => setNameActive(false)}
       >
         <div className="flex pr-0.5 overflow-hidden">
           <motion.div
@@ -113,7 +110,11 @@ export default function AntHoney(props: Readonly<{ size: number }>) {
           </motion.div>
         </div>
       </h1>
-      <HoverIndicator size={props.size} />
+      <AntHoneyIndicator
+        name={"Hover"}
+        firstActive={firstActive}
+        size={props.size}
+      />
     </>
   );
 }

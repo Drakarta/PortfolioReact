@@ -1,14 +1,17 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 
+import AntHoneyIndicator from "./AntHoneyIndicator";
+
 import ant from "../../assets/ant_flat.svg";
 import honey from "../../assets/honey_pot_flat.svg";
 
 export default function AntHoneyM() {
   const size = 4;
   const [nameActive, setNameActive] = useState(false);
+  const [firstActive, setFirstActive] = useState(false);
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center">
       <h1
         className="flex flex-col font-bespoke text-orange-100"
         style={{
@@ -16,7 +19,10 @@ export default function AntHoneyM() {
           letterSpacing: "-0.05em",
           fontSize: `${size}rem`,
         }}
-        onClick={() => setNameActive(!nameActive)}
+        onClick={() => {
+          setNameActive(!nameActive);
+          setFirstActive(true);
+        }}
       >
         <div className="flex flex-row justify-center">
           <img
@@ -68,6 +74,7 @@ export default function AntHoneyM() {
           <div>y</div>
         </motion.div>
       </h1>
+      <AntHoneyIndicator name={"Tap"} firstActive={firstActive} size={0} />
     </div>
   );
 }

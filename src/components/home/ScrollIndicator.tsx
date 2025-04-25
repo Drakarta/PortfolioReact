@@ -1,18 +1,15 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-
-import { useNameStore } from "../../resources/stores";
 
 import { Icon } from "@iconify/react";
 
 export default function ScrollIndicator() {
-  const scrolled = useNameStore((state) => state.scrolled);
-  const updateScrolled = useNameStore((state) => state.updateScrolled);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
-        updateScrolled(true);
+        setScrolled(true);
       }
     };
     window.addEventListener("scroll", handleScroll);
