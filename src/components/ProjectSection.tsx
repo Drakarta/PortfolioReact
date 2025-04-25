@@ -8,7 +8,6 @@ export default function ProjectSection() {
     refetchOnWindowFocus: false,
     refetchOnReconnect: false,
   });
-  console.log(query.data);
   return (
     <section id="project" className="z-100 relative w-full h-svh">
       <div></div>
