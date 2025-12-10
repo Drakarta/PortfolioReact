@@ -16,7 +16,6 @@ import { Route as AboutPdStageImport } from './routes/about/pd/stage'
 import { Route as AboutPdLinkedinEnCvImport } from './routes/about/pd/linkedin-en-cv'
 import { Route as AboutPdHboiEventImport } from './routes/about/pd/hboi-event'
 import { Route as AboutPdAmbitieImport } from './routes/about/pd/ambitie'
-import { Route as AboutPdPdIdImport } from './routes/about/pd/$pdId'
 
 // Create/Update Routes
 
@@ -50,12 +49,6 @@ const AboutPdAmbitieRoute = AboutPdAmbitieImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const AboutPdPdIdRoute = AboutPdPdIdImport.update({
-  id: '/about/pd/$pdId',
-  path: '/about/pd/$pdId',
-  getParentRoute: () => rootRoute,
-} as any)
-
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -65,13 +58,6 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/about/pd/$pdId': {
-      id: '/about/pd/$pdId'
-      path: '/about/pd/$pdId'
-      fullPath: '/about/pd/$pdId'
-      preLoaderRoute: typeof AboutPdPdIdImport
       parentRoute: typeof rootRoute
     }
     '/about/pd/ambitie': {
@@ -109,7 +95,6 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about/pd/$pdId': typeof AboutPdPdIdRoute
   '/about/pd/ambitie': typeof AboutPdAmbitieRoute
   '/about/pd/hboi-event': typeof AboutPdHboiEventRoute
   '/about/pd/linkedin-en-cv': typeof AboutPdLinkedinEnCvRoute
@@ -118,7 +103,6 @@ export interface FileRoutesByFullPath {
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about/pd/$pdId': typeof AboutPdPdIdRoute
   '/about/pd/ambitie': typeof AboutPdAmbitieRoute
   '/about/pd/hboi-event': typeof AboutPdHboiEventRoute
   '/about/pd/linkedin-en-cv': typeof AboutPdLinkedinEnCvRoute
@@ -128,7 +112,6 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
-  '/about/pd/$pdId': typeof AboutPdPdIdRoute
   '/about/pd/ambitie': typeof AboutPdAmbitieRoute
   '/about/pd/hboi-event': typeof AboutPdHboiEventRoute
   '/about/pd/linkedin-en-cv': typeof AboutPdLinkedinEnCvRoute
@@ -139,7 +122,6 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/about/pd/$pdId'
     | '/about/pd/ambitie'
     | '/about/pd/hboi-event'
     | '/about/pd/linkedin-en-cv'
@@ -147,7 +129,6 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/about/pd/$pdId'
     | '/about/pd/ambitie'
     | '/about/pd/hboi-event'
     | '/about/pd/linkedin-en-cv'
@@ -155,7 +136,6 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
-    | '/about/pd/$pdId'
     | '/about/pd/ambitie'
     | '/about/pd/hboi-event'
     | '/about/pd/linkedin-en-cv'
@@ -165,7 +145,6 @@ export interface FileRouteTypes {
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AboutPdPdIdRoute: typeof AboutPdPdIdRoute
   AboutPdAmbitieRoute: typeof AboutPdAmbitieRoute
   AboutPdHboiEventRoute: typeof AboutPdHboiEventRoute
   AboutPdLinkedinEnCvRoute: typeof AboutPdLinkedinEnCvRoute
@@ -174,7 +153,6 @@ export interface RootRouteChildren {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutPdPdIdRoute: AboutPdPdIdRoute,
   AboutPdAmbitieRoute: AboutPdAmbitieRoute,
   AboutPdHboiEventRoute: AboutPdHboiEventRoute,
   AboutPdLinkedinEnCvRoute: AboutPdLinkedinEnCvRoute,
@@ -192,7 +170,6 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/about/pd/$pdId",
         "/about/pd/ambitie",
         "/about/pd/hboi-event",
         "/about/pd/linkedin-en-cv",
@@ -201,9 +178,6 @@ export const routeTree = rootRoute
     },
     "/": {
       "filePath": "index.tsx"
-    },
-    "/about/pd/$pdId": {
-      "filePath": "about/pd/$pdId.tsx"
     },
     "/about/pd/ambitie": {
       "filePath": "about/pd/ambitie.tsx"
