@@ -15,7 +15,7 @@ export const Route = createFileRoute("/about/pd/hboi-event")({
 })
 
 const mdUrl = new URL(
-  "../../../components/about/pd3/1-HBOI-Event.md",
+  "../../../components/about/pd3/1-HBO-I_Event.md",
   import.meta.url,
 ).href
 
@@ -38,7 +38,7 @@ function RouteComponent() {
 
   return (
     <Layout>
-  <MarkdownRenderer md={md ?? ""} mdUrl={mdUrl} />
+      <MarkdownRenderer md={md ?? ""} mdUrl={mdUrl} />
     </Layout>
   )
 }

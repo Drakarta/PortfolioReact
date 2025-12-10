@@ -1,6 +1,6 @@
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
-import { makeMDComponents } from './mdComponents'
+import ReactMarkdown from "react-markdown"
+import remarkGfm from "remark-gfm"
+import { makeMDComponents } from "./mdComponents"
 
 type Props = {
   md: string
