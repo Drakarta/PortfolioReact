@@ -1,8 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { useQuery } from "@tanstack/react-query"
-import Markdown from "react-markdown"
+import MarkdownRenderer from "@/components/about/pd3/MarkdownRenderer"
+import Layout from "@/components/about/pd3/PDLayout"
 
 export const Route = createFileRoute("/about/pd/linkedin-en-cv")({
+  head: () => ({
+    meta: [
+      {
+        title: "🐜🍯 | PD - LinkedIn & CV",
+      },
+    ],
+  }),
   component: RouteComponent,
 })
 
@@ -29,24 +37,8 @@ function RouteComponent() {
   if (error) return <div>Failed to load content.</div>
 
   return (
-    <div className="">
-      <Markdown
-        components={{
-          img: (props: any) => {
-            try {
-              const src = props.src || ""
-              const isAbsolute =
-                /^(https?:)?\/\//i.test(src) || src.startsWith("data:")
-              const resolved = isAbsolute ? src : new URL(src, mdUrl).href
-              return <img {...props} src={resolved} />
-            } catch (e) {
-              return <img {...props} />
-            }
-          },
-        }}
-      >
-        {md}
-      </Markdown>
-    </div>
+    <Layout>
+      <MarkdownRenderer md={md ?? ""} mdUrl={mdUrl} />
+    </Layout>
   )
 }

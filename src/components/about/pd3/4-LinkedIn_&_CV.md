@@ -1,6 +1,6 @@
-# Opdracht 1A: LinkedIn profiel
+# LinkedIn & CV
 
-## Profielfoto en professionele kopregel
+## LinkedIn
 
 - Werk je professionele kopregel bij om je huidige studierichting en carrièredoelen duidelijk te maken. Bijvoorbeeld:
   - Student Innovative Development met een passie voor technische innovatie en duurzame oplossingen.
@@ -93,7 +93,7 @@ Ga op zoek naar vacatures van functies/banen (stages) die jou interessant lijken
 
 ### Vacature 1
 
-![Capgemini 1](Images/Capgemini 1.png)
+![Capgemini 1](Images/Capgemini1.png)
 
 - Welke zoektermen heb je gebruikt?
   - Software Engineer Stage op Indeed.com
@@ -137,9 +137,11 @@ Graag zou ik mijn motivatie en kwaliteiten verder toelichten in een persoonlijk 
 Met vriendelijke groet,
 
 Anthony Suhendra
+
 The Hague University of Applied Sciences
 
 +31 6 10393683
+
 [anthony.suhendra@gmail.com](mailto:anthony.suhendra@gmail.com)
 
 ### Sollicitatievragen

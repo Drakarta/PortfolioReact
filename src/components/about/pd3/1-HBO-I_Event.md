@@ -1,4 +1,4 @@
-# Verslag HBO-I Event – 2 oktober 2025
+# HBO-I Event – 2 oktober 2025
 
 Op 2 oktober 2025 bezocht ik samen met de opleiding ID de HBO-I stagebeurs in Utrecht. Het doel van deze dag was om bedrijven te ontmoeten, meer inzicht te krijgen in verschillende IT-richtingen en mogelijke stageplekken te vinden die passen bij mijn interesses en toekomstplannen. Tijdens het event sprak ik met meerdere organisaties en volgde ik een workshop die relevant is voor mijn ontwikkeling richting.
 
@@ -17,7 +17,7 @@ Tijdens de cursus werd uitgelegd:
 
 Deze kennis helpt mij gerichter te zoeken naar stageplekken op het gebied van DevOps, cloud en infrastructuur, omdat ik nu beter begrijp welke technologieën binnen deze richtingen worden gebruikt.
 
-![Docker Containers](Images/Docker Containers.png)
+![Docker Containers](Images/DockerContainers.png)
 
 ## Quintor – Softwareontwikkeling & Consultancy
 

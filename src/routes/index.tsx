@@ -1,4 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router"
+import KonamiCode from "../components/KonamiCode"
+import HomeSection from "../components/HomeSection"
+import AboutSection from "../components/AboutSection"
+
+import grainy from "../assets/grainy.png"
+import ProjectSection from "../components/ProjectSection"
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -11,13 +17,6 @@ export const Route = createFileRoute("/")({
   component: Index,
 })
 
-import KonamiCode from "../components/KonamiCode"
-import HomeSection from "../components/HomeSection"
-import AboutSection from "../components/AboutSection"
-
-import grainy from "../assets/grainy.png"
-import ProjectSection from "../components/ProjectSection"
-
 function Index() {
   KonamiCode(() => {
     window.location.href =
@@ -27,7 +26,7 @@ function Index() {
   return (
     <>
       <div
-        className="fixed z-50 flex h-lvh w-full flex-col items-center justify-center bg-[109px] bg-repeat opacity-40 bg-blend-multiply mix-blend-multiply"
+        className="fixed -z-50 flex h-lvh w-full flex-col items-center justify-center bg-[109px] bg-repeat opacity-40 bg-blend-multiply mix-blend-multiply"
         style={{
           backgroundImage: `url(${grainy})`,
         }}
