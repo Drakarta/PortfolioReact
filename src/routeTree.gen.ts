@@ -10,8 +10,14 @@
 
 // Import Routes
 
-import { Route as rootRoute } from "./routes/__root";
-import { Route as IndexImport } from "./routes/index";
+import { Route as rootRoute } from "./routes/__root"
+import { Route as IndexImport } from "./routes/index"
+import { Route as AboutAboutImport } from "./routes/about/about"
+import { Route as AboutPdIndexImport } from "./routes/about/pd/index"
+import { Route as AboutPdStageImport } from "./routes/about/pd/stage"
+import { Route as AboutPdLinkedinEnCvImport } from "./routes/about/pd/linkedin-en-cv"
+import { Route as AboutPdHboiEventImport } from "./routes/about/pd/hboi-event"
+import { Route as AboutPdAmbitieImport } from "./routes/about/pd/ambitie"
 
 // Create/Update Routes
 
@@ -19,57 +25,187 @@ const IndexRoute = IndexImport.update({
   id: "/",
   path: "/",
   getParentRoute: () => rootRoute,
-} as any);
+} as any)
+
+const AboutAboutRoute = AboutAboutImport.update({
+  id: "/about/about",
+  path: "/about/about",
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AboutPdIndexRoute = AboutPdIndexImport.update({
+  id: "/about/pd/",
+  path: "/about/pd/",
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AboutPdStageRoute = AboutPdStageImport.update({
+  id: "/about/pd/stage",
+  path: "/about/pd/stage",
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AboutPdLinkedinEnCvRoute = AboutPdLinkedinEnCvImport.update({
+  id: "/about/pd/linkedin-en-cv",
+  path: "/about/pd/linkedin-en-cv",
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AboutPdHboiEventRoute = AboutPdHboiEventImport.update({
+  id: "/about/pd/hboi-event",
+  path: "/about/pd/hboi-event",
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AboutPdAmbitieRoute = AboutPdAmbitieImport.update({
+  id: "/about/pd/ambitie",
+  path: "/about/pd/ambitie",
+  getParentRoute: () => rootRoute,
+} as any)
 
 // Populate the FileRoutesByPath interface
 
 declare module "@tanstack/react-router" {
   interface FileRoutesByPath {
     "/": {
-      id: "/";
-      path: "/";
-      fullPath: "/";
-      preLoaderRoute: typeof IndexImport;
-      parentRoute: typeof rootRoute;
-    };
+      id: "/"
+      path: "/"
+      fullPath: "/"
+      preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
+    "/about/about": {
+      id: "/about/about"
+      path: "/about/about"
+      fullPath: "/about/about"
+      preLoaderRoute: typeof AboutAboutImport
+      parentRoute: typeof rootRoute
+    }
+    "/about/pd/ambitie": {
+      id: "/about/pd/ambitie"
+      path: "/about/pd/ambitie"
+      fullPath: "/about/pd/ambitie"
+      preLoaderRoute: typeof AboutPdAmbitieImport
+      parentRoute: typeof rootRoute
+    }
+    "/about/pd/hboi-event": {
+      id: "/about/pd/hboi-event"
+      path: "/about/pd/hboi-event"
+      fullPath: "/about/pd/hboi-event"
+      preLoaderRoute: typeof AboutPdHboiEventImport
+      parentRoute: typeof rootRoute
+    }
+    "/about/pd/linkedin-en-cv": {
+      id: "/about/pd/linkedin-en-cv"
+      path: "/about/pd/linkedin-en-cv"
+      fullPath: "/about/pd/linkedin-en-cv"
+      preLoaderRoute: typeof AboutPdLinkedinEnCvImport
+      parentRoute: typeof rootRoute
+    }
+    "/about/pd/stage": {
+      id: "/about/pd/stage"
+      path: "/about/pd/stage"
+      fullPath: "/about/pd/stage"
+      preLoaderRoute: typeof AboutPdStageImport
+      parentRoute: typeof rootRoute
+    }
+    "/about/pd/": {
+      id: "/about/pd/"
+      path: "/about/pd"
+      fullPath: "/about/pd"
+      preLoaderRoute: typeof AboutPdIndexImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
 // Create and export the route tree
 
 export interface FileRoutesByFullPath {
-  "/": typeof IndexRoute;
+  "/": typeof IndexRoute
+  "/about/about": typeof AboutAboutRoute
+  "/about/pd/ambitie": typeof AboutPdAmbitieRoute
+  "/about/pd/hboi-event": typeof AboutPdHboiEventRoute
+  "/about/pd/linkedin-en-cv": typeof AboutPdLinkedinEnCvRoute
+  "/about/pd/stage": typeof AboutPdStageRoute
+  "/about/pd": typeof AboutPdIndexRoute
 }
 
 export interface FileRoutesByTo {
-  "/": typeof IndexRoute;
+  "/": typeof IndexRoute
+  "/about/about": typeof AboutAboutRoute
+  "/about/pd/ambitie": typeof AboutPdAmbitieRoute
+  "/about/pd/hboi-event": typeof AboutPdHboiEventRoute
+  "/about/pd/linkedin-en-cv": typeof AboutPdLinkedinEnCvRoute
+  "/about/pd/stage": typeof AboutPdStageRoute
+  "/about/pd": typeof AboutPdIndexRoute
 }
 
 export interface FileRoutesById {
-  __root__: typeof rootRoute;
-  "/": typeof IndexRoute;
+  __root__: typeof rootRoute
+  "/": typeof IndexRoute
+  "/about/about": typeof AboutAboutRoute
+  "/about/pd/ambitie": typeof AboutPdAmbitieRoute
+  "/about/pd/hboi-event": typeof AboutPdHboiEventRoute
+  "/about/pd/linkedin-en-cv": typeof AboutPdLinkedinEnCvRoute
+  "/about/pd/stage": typeof AboutPdStageRoute
+  "/about/pd/": typeof AboutPdIndexRoute
 }
 
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: "/";
-  fileRoutesByTo: FileRoutesByTo;
-  to: "/";
-  id: "__root__" | "/";
-  fileRoutesById: FileRoutesById;
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths:
+    | "/"
+    | "/about/about"
+    | "/about/pd/ambitie"
+    | "/about/pd/hboi-event"
+    | "/about/pd/linkedin-en-cv"
+    | "/about/pd/stage"
+    | "/about/pd"
+  fileRoutesByTo: FileRoutesByTo
+  to:
+    | "/"
+    | "/about/about"
+    | "/about/pd/ambitie"
+    | "/about/pd/hboi-event"
+    | "/about/pd/linkedin-en-cv"
+    | "/about/pd/stage"
+    | "/about/pd"
+  id:
+    | "__root__"
+    | "/"
+    | "/about/about"
+    | "/about/pd/ambitie"
+    | "/about/pd/hboi-event"
+    | "/about/pd/linkedin-en-cv"
+    | "/about/pd/stage"
+    | "/about/pd/"
+  fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute;
+  IndexRoute: typeof IndexRoute
+  AboutAboutRoute: typeof AboutAboutRoute
+  AboutPdAmbitieRoute: typeof AboutPdAmbitieRoute
+  AboutPdHboiEventRoute: typeof AboutPdHboiEventRoute
+  AboutPdLinkedinEnCvRoute: typeof AboutPdLinkedinEnCvRoute
+  AboutPdStageRoute: typeof AboutPdStageRoute
+  AboutPdIndexRoute: typeof AboutPdIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-};
+  AboutAboutRoute: AboutAboutRoute,
+  AboutPdAmbitieRoute: AboutPdAmbitieRoute,
+  AboutPdHboiEventRoute: AboutPdHboiEventRoute,
+  AboutPdLinkedinEnCvRoute: AboutPdLinkedinEnCvRoute,
+  AboutPdStageRoute: AboutPdStageRoute,
+  AboutPdIndexRoute: AboutPdIndexRoute,
+}
 
 export const routeTree = rootRoute
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>();
+  ._addFileTypes<FileRouteTypes>()
 
 /* ROUTE_MANIFEST_START
 {
@@ -77,11 +213,35 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/"
+        "/",
+        "/about/about",
+        "/about/pd/ambitie",
+        "/about/pd/hboi-event",
+        "/about/pd/linkedin-en-cv",
+        "/about/pd/stage",
+        "/about/pd/"
       ]
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/about/about": {
+      "filePath": "about/about.tsx"
+    },
+    "/about/pd/ambitie": {
+      "filePath": "about/pd/ambitie.tsx"
+    },
+    "/about/pd/hboi-event": {
+      "filePath": "about/pd/hboi-event.tsx"
+    },
+    "/about/pd/linkedin-en-cv": {
+      "filePath": "about/pd/linkedin-en-cv.tsx"
+    },
+    "/about/pd/stage": {
+      "filePath": "about/pd/stage.tsx"
+    },
+    "/about/pd/": {
+      "filePath": "about/pd/index.tsx"
     }
   }
 }

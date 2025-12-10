@@ -10,8 +10,8 @@ export default function ProjectSection() {
   // });
 
   return (
-    <section id="project" className="z-100 relative w-full h-svh">
+    <section id="project" className="relative z-100 h-svh w-full">
       <div></div>
     </section>
-  );
+  )
 }

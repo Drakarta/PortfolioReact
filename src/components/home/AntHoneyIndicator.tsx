@@ -1,12 +1,12 @@
-import { motion } from "motion/react";
-import { Icon } from "@iconify/react";
+import { motion } from "motion/react"
+import { Icon } from "@iconify/react"
 
 export default function HoverIndicator(
-  props: Readonly<{ name: string; firstActive: boolean; size: number }>
+  props: Readonly<{ name: string; firstActive: boolean; size: number }>,
 ) {
   return (
     <motion.div
-      className="relative flex content-center opacity-30 w-auto font-sans text-orange-100 text-lg pointer-events-none"
+      className="pointer-events-none relative flex w-auto content-center font-sans text-lg text-orange-100 opacity-30"
       style={{
         top: `-${props.size / 6}rem`,
       }}
@@ -15,8 +15,8 @@ export default function HoverIndicator(
       transition={{ duration: 0.4, ease: "easeInOut" }}
     >
       <Icon icon="fluent:arrow-sort-up-16-filled" width="26" height="26" />
-      <div className="drop-shadow-md font-semibold">{props.name}</div>
+      <div className="font-semibold drop-shadow-md">{props.name}</div>
       <Icon icon="fluent:arrow-sort-up-16-filled" width="26" height="26" />
     </motion.div>
-  );
+  )
 }

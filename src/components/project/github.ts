@@ -1,6 +1,6 @@
 export const getGithubData = async () => {
-  const res = await fetch("https://api.github.com/users/Drakarta/repos");
-  const json = await res.json();
+  const res = await fetch("https://api.github.com/users/Drakarta/repos")
+  const json = await res.json()
   const data = json.map((repo: any) => ({
     id: repo.id,
     name: repo.name,
@@ -14,7 +14,7 @@ export const getGithubData = async () => {
     topics: repo.topics,
     language: repo.language,
     homepage: repo.homepage,
-  }));
-  data.sort((a: any, b: any) => b.stargazers_count - a.stargazers_count);
-  return data;
-};
+  }))
+  data.sort((a: any, b: any) => b.stargazers_count - a.stargazers_count)
+  return data
+}

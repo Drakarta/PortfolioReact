@@ -1,31 +1,31 @@
-import { StrictMode } from "react";
-import ReactDOM from "react-dom/client";
-import { RouterProvider, createRouter } from "@tanstack/react-router";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { StrictMode } from "react"
+import ReactDOM from "react-dom/client"
+import { RouterProvider, createRouter } from "@tanstack/react-router"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 
-import { routeTree } from "./routeTree.gen";
+import { routeTree } from "./routeTree.gen"
 
-import "./resources/index.css";
+import "@/lib/index.css"
 
-const queryClient = new QueryClient();
-const router = createRouter({ routeTree });
+const queryClient = new QueryClient()
+const router = createRouter({ routeTree })
 
 declare module "@tanstack/react-router" {
   interface Register {
-    router: typeof router;
+    router: typeof router
   }
 }
 
-const rootElement = document.getElementById("root")!;
+const rootElement = document.getElementById("root")!
 if (!rootElement.innerHTML) {
-  const root = ReactDOM.createRoot(rootElement);
+  const root = ReactDOM.createRoot(rootElement)
   root.render(
     <StrictMode>
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={router} />
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
-    </StrictMode>
-  );
+    </StrictMode>,
+  )
 }

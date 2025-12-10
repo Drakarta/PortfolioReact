@@ -1,32 +1,32 @@
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react"
+import { motion } from "framer-motion"
 
-import { Icon } from "@iconify/react";
+import { Icon } from "@iconify/react"
 
 export default function ScrollIndicator() {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
-        setScrolled(true);
+        setScrolled(true)
       }
-    };
-    window.addEventListener("scroll", handleScroll);
+    }
+    window.addEventListener("scroll", handleScroll)
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
 
   return (
     <motion.div
-      className="-right-4 bottom-8 absolute flex gap-1 opacity-30 drop-shadow-md font-sans text-orange-100 text-lg rotate-90 transform"
+      className="absolute -right-4 bottom-8 flex rotate-90 transform gap-1 font-sans text-lg text-orange-100 opacity-30 drop-shadow-md"
       initial={false}
       animate={scrolled ? { bottom: "-80px", opacity: "0%" } : "initial"}
       transition={{ duration: 0.75, ease: "easeInOut" }}
     >
       <div className="font-semibold">Scroll</div>
-      <div className="flex flex-col justify-center h-7">
+      <div className="flex h-7 flex-col justify-center">
         <Icon
           icon="fluent:arrow-sort-up-16-filled"
           width="26"
@@ -35,5 +35,5 @@ export default function ScrollIndicator() {
         />
       </div>
     </motion.div>
-  );
+  )
 }

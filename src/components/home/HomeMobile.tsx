@@ -1,9 +1,9 @@
-import AntHoneyM from "./AntHoneyM";
+import AntHoneyM from "./AntHoneyM"
 
 export default function HomeMobile() {
   return (
-    <div className="md:hidden flex flex-col justify-center items-center w-full h-svh">
+    <div className="flex h-svh w-full flex-col items-center justify-center md:hidden">
       <AntHoneyM />
     </div>
-  );
+  )
 }

@@ -1,28 +1,28 @@
-import { useEffect, useState } from "react";
-import { motion } from "motion/react";
+import { useEffect, useState } from "react"
+import { motion } from "motion/react"
 
-import ant from "../../assets/ant_flat.svg";
-import honey from "../../assets/honey_pot_flat.svg";
-import AntHoneyIndicator from "./AntHoneyIndicator";
+import ant from "../../assets/ant_flat.svg"
+import honey from "../../assets/honey_pot_flat.svg"
+import AntHoneyIndicator from "./AntHoneyIndicator"
 
 export default function AntHoney(props: Readonly<{ size: number }>) {
-  const [nameActive, setNameActive] = useState(false);
-  const [firstActive, setFirstActive] = useState(false);
+  const [nameActive, setNameActive] = useState(false)
+  const [firstActive, setFirstActive] = useState(false)
 
   useEffect(() => {
-    let timeout: ReturnType<typeof setTimeout> | undefined;
+    let timeout: ReturnType<typeof setTimeout> | undefined
     if (nameActive) {
-      timeout = setTimeout(() => setFirstActive(true), 250);
+      timeout = setTimeout(() => setFirstActive(true), 250)
     }
     return () => {
-      if (timeout) clearTimeout(timeout);
-    };
-  }, [nameActive, firstActive]);
+      if (timeout) clearTimeout(timeout)
+    }
+  }, [nameActive, firstActive])
 
   return (
     <>
       <h1
-        className="flex font-bespoke text-orange-100"
+        className="font-bespoke flex text-orange-100"
         style={{
           lineHeight: "normal",
           letterSpacing: "-0.05em",
@@ -31,14 +31,14 @@ export default function AntHoney(props: Readonly<{ size: number }>) {
         onMouseEnter={() => setNameActive(true)}
         onMouseLeave={() => setNameActive(false)}
       >
-        <div className="flex pr-0.5 overflow-hidden">
+        <div className="flex overflow-hidden pr-0.5">
           <motion.div
             initial={false}
             animate={nameActive ? { x: `-${props.size}.5rem`, width: 0 } : {}}
             transition={{ duration: 0.5, ease: "easeInOut" }}
           >
             <img
-              className="drop-shadow-md mt-3 max-w-none aspect-square"
+              className="mt-3 aspect-square max-w-none drop-shadow-md"
               style={{
                 width: `${props.size}rem`,
               }}
@@ -58,14 +58,14 @@ export default function AntHoney(props: Readonly<{ size: number }>) {
             Ant
           </motion.div>
         </div>
-        <div className="flex pr-0.5 overflow-hidden">
+        <div className="flex overflow-hidden pr-0.5">
           <motion.div
             initial={false}
             animate={nameActive ? { x: `-${props.size}rem`, width: 0 } : {}}
             transition={{ duration: 0.5, ease: "easeInOut" }}
           >
             <img
-              className="drop-shadow-md mt-3 max-w-none aspect-square"
+              className="mt-3 aspect-square max-w-none drop-shadow-md"
               style={{
                 width: `${props.size}rem`,
               }}
@@ -106,7 +106,7 @@ export default function AntHoney(props: Readonly<{ size: number }>) {
             >
               e
             </motion.div>
-            <div className="drop-shadow-md pr-1">y</div>
+            <div className="pr-1 drop-shadow-md">y</div>
           </motion.div>
         </div>
       </h1>
@@ -116,5 +116,5 @@ export default function AntHoney(props: Readonly<{ size: number }>) {
         size={props.size}
       />
     </>
-  );
+  )
 }
