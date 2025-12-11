@@ -1,10 +1,10 @@
 // no runtime React import needed; react-markdown produces React elements via JSX here
 
 // Build-time map of images in this folder (Vite will rewrite to final URLs).
-const __assetsImageMap: Record<string, string> = import.meta.glob(
-  "../../../assets/pd3/images/*",
-  { query: "?url", import: "default", eager: true },
-) as Record<string, string>
+// const __assetsImageMap: Record<string, string> = import.meta.glob(
+//   "../../../assets/pd3/images/*",
+//   { query: "?url", import: "default", eager: true },
+// ) as Record<string, string>
 
 export function makeMDComponents(mdUrl: string) {
   // helper to resolve an asset (image/pdf) to a usable URL in dev and production
@@ -17,7 +17,7 @@ export function makeMDComponents(mdUrl: string) {
     // Keys look like "../../../assets/pd3/images/Welkom.png" or "./Images/foo.png".
     const combinedMap: Record<string, string> = Object.assign(
       {},
-      __assetsImageMap,
+      // __assetsImageMap,
     )
 
     // Normalized source path from the markdown (strip leading ./ or /)
