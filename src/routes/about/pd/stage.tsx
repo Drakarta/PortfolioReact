@@ -15,7 +15,7 @@ export const Route = createFileRoute("/about/pd/stage")({
 })
 
 const mdUrl = new URL(
-  "../../../components/about/pd3/2-Stage.md",
+  "../../../assets/pd3/2-Stage.md",
   import.meta.url,
 ).href
 

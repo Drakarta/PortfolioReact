@@ -15,7 +15,7 @@ export const Route = createFileRoute("/about/pd/hboi-event")({
 })
 
 const mdUrl = new URL(
-  "../../../components/about/pd3/1-HBO-I_Event.md",
+  "../../../assets/pd3//1-HBO-I_Event.md",
   import.meta.url,
 ).href
 

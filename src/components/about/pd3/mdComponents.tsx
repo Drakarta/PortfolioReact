@@ -1,14 +1,73 @@
 // no runtime React import needed; react-markdown produces React elements via JSX here
 
+// Build-time map of images in this folder (Vite will rewrite to final URLs).
+// This ensures images referenced in markdown (Images/...) resolve after build.
+// Note: import.meta.glob's `as: 'url'` is deprecated; use `query: '?url', import: 'default'`.
+const __imageMap: Record<string, string> = import.meta.glob('./Images/*', { query: '?url', import: 'default', eager: true }) as Record<string, string>
+// also include images that live under src/assets/pd3/images (some markdown came from assets)
+const __assetsImageMap1: Record<string, string> = import.meta.glob('../../../assets/pd3/images/*', { query: '?url', import: 'default', eager: true }) as Record<string, string>
+// and try the capitalized Images folder as well just in case
+const __assetsImageMap2: Record<string, string> = import.meta.glob('../../../assets/pd3/Images/*', { query: '?url', import: 'default', eager: true }) as Record<string, string>
+
 export function makeMDComponents(mdUrl: string) {
+  // helper to resolve an asset (image/pdf) to a usable URL in dev and production
+  function resolveAsset(src: string) {
+    if (!src) return src
+    const isAbsolute = /^(https?:)?\/\//i.test(src) || src.startsWith('data:')
+    if (isAbsolute) return src
+
+    // Prefer matching against the import.meta.glob *keys* (the original source paths).
+    // Keys look like "../../../assets/pd3/images/Welkom.png" or "./Images/foo.png".
+    const combinedMap: Record<string, string> = Object.assign({}, __imageMap, __assetsImageMap1, __assetsImageMap2)
+
+    // Normalized source path from the markdown (strip leading ./ or /)
+    const normalizedSrc = src.replace(/^\.\/?/, '').replace(/^\//, '')
+    const srcLower = normalizedSrc.toLowerCase()
+    const filename = src.split('/').pop() || src
+    const filenameLower = filename.toLowerCase()
+
+    // 1) Try exact key suffix match: key endsWith the same relative path used in the markdown
+    for (const [key, val] of Object.entries(combinedMap)) {
+      const keyLower = key.toLowerCase()
+      if (keyLower.endsWith('/' + srcLower) || keyLower.endsWith(srcLower)) {
+        return val
+      }
+    }
+
+    // 2) Fallback: match by filename presence in the key (useful when markdown uses just `images/foo.png`)
+    for (const [key, val] of Object.entries(combinedMap)) {
+      const keyLower = key.toLowerCase()
+      if (keyLower.endsWith(filenameLower) || keyLower.includes('/' + filenameLower) || keyLower.includes('%2f' + filenameLower)) {
+        return val
+      }
+    }
+
+    // 3) As a last resort, try to resolve relative to the markdown file location (dev mode / other cases)
+
+    try {
+      return new URL(src, mdUrl).href
+    } catch (e) {
+      return src
+    }
+  }
+
   return {
     // resolve relative image paths against the markdown file location
     img: (props: any) => {
       try {
-        const src = props.src || ""
-        const isAbsolute =
-          /^(https?:)?\/\//i.test(src) || src.startsWith("data:")
-        const resolved = isAbsolute ? src : new URL(src, mdUrl).href
+        const src = props.src || ''
+        const resolved = resolveAsset(src)
+        // If the asset is a PDF, embed it using an object tag
+        if (resolved && resolved.toLowerCase().endsWith('.pdf')) {
+          return (
+            <div className="my-4">
+              <object data={resolved} type="application/pdf" className="w-full h-[700px]">
+                <a href={resolved} target="_blank" rel="noreferrer">Open PDF</a>
+              </object>
+            </div>
+          )
+        }
+
         return <img {...props} src={resolved} />
       } catch (e) {
         return <img {...props} />
@@ -84,16 +143,40 @@ export function makeMDComponents(mdUrl: string) {
       return <li className="ml-0">{props.children}</li>
     },
     // link styling: underline links from markdown for visibility
-    a: (props: any) => (
-      <a
-        {...props}
-        className={
-          (props.className ? props.className + " " : "") +
-          "text-primary underline underline-offset-2 hover:opacity-90"
-        }
-      >
-        {props.children}
-      </a>
-    ),
+    a: (props: any) => {
+      const href = props.href || ''
+      const resolved = resolveAsset(href)
+      // If the link points to a PDF, show a download/open link and embed the PDF below
+      if (resolved && resolved.toLowerCase().endsWith('.pdf')) {
+        return (
+          <div className="my-4">
+            <a
+              href={resolved}
+              target="_blank"
+              rel="noreferrer"
+              className={(props.className ? props.className + ' ' : '') + 'text-primary underline underline-offset-2 hover:opacity-90'}
+            >
+              {props.children}
+            </a>
+
+            <div className="mt-3">
+              <object data={resolved} type="application/pdf" className="w-full h-[700px]">
+                <a href={resolved} target="_blank" rel="noreferrer">Open PDF</a>
+              </object>
+            </div>
+          </div>
+        )
+      }
+
+      return (
+        <a
+          {...props}
+          href={resolved}
+          className={(props.className ? props.className + ' ' : '') + 'text-primary underline underline-offset-2 hover:opacity-90'}
+        >
+          {props.children}
+        </a>
+      )
+    },
   }
 }
