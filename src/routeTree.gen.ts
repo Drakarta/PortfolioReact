@@ -12,6 +12,7 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
+import { Route as AboutIndexImport } from './routes/about/index'
 import { Route as AboutPdStageImport } from './routes/about/pd/stage'
 import { Route as AboutPdLinkedinEnCvImport } from './routes/about/pd/linkedin-en-cv'
 import { Route as AboutPdHboiEventImport } from './routes/about/pd/hboi-event'
@@ -22,6 +23,12 @@ import { Route as AboutPdAmbitieImport } from './routes/about/pd/ambitie'
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AboutIndexRoute = AboutIndexImport.update({
+  id: '/about/',
+  path: '/about/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -60,6 +67,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/about/': {
+      id: '/about/'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutIndexImport
+      parentRoute: typeof rootRoute
+    }
     '/about/pd/ambitie': {
       id: '/about/pd/ambitie'
       path: '/about/pd/ambitie'
@@ -95,6 +109,7 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutIndexRoute
   '/about/pd/ambitie': typeof AboutPdAmbitieRoute
   '/about/pd/hboi-event': typeof AboutPdHboiEventRoute
   '/about/pd/linkedin-en-cv': typeof AboutPdLinkedinEnCvRoute
@@ -103,6 +118,7 @@ export interface FileRoutesByFullPath {
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutIndexRoute
   '/about/pd/ambitie': typeof AboutPdAmbitieRoute
   '/about/pd/hboi-event': typeof AboutPdHboiEventRoute
   '/about/pd/linkedin-en-cv': typeof AboutPdLinkedinEnCvRoute
@@ -112,6 +128,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/about/': typeof AboutIndexRoute
   '/about/pd/ambitie': typeof AboutPdAmbitieRoute
   '/about/pd/hboi-event': typeof AboutPdHboiEventRoute
   '/about/pd/linkedin-en-cv': typeof AboutPdLinkedinEnCvRoute
@@ -122,6 +139,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
     | '/about/pd/ambitie'
     | '/about/pd/hboi-event'
     | '/about/pd/linkedin-en-cv'
@@ -129,6 +147,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
     | '/about/pd/ambitie'
     | '/about/pd/hboi-event'
     | '/about/pd/linkedin-en-cv'
@@ -136,6 +155,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/about/'
     | '/about/pd/ambitie'
     | '/about/pd/hboi-event'
     | '/about/pd/linkedin-en-cv'
@@ -145,6 +165,7 @@ export interface FileRouteTypes {
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutIndexRoute: typeof AboutIndexRoute
   AboutPdAmbitieRoute: typeof AboutPdAmbitieRoute
   AboutPdHboiEventRoute: typeof AboutPdHboiEventRoute
   AboutPdLinkedinEnCvRoute: typeof AboutPdLinkedinEnCvRoute
@@ -153,6 +174,7 @@ export interface RootRouteChildren {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutIndexRoute: AboutIndexRoute,
   AboutPdAmbitieRoute: AboutPdAmbitieRoute,
   AboutPdHboiEventRoute: AboutPdHboiEventRoute,
   AboutPdLinkedinEnCvRoute: AboutPdLinkedinEnCvRoute,
@@ -170,6 +192,7 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
+        "/about/",
         "/about/pd/ambitie",
         "/about/pd/hboi-event",
         "/about/pd/linkedin-en-cv",
@@ -178,6 +201,9 @@ export const routeTree = rootRoute
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/about/": {
+      "filePath": "about/index.tsx"
     },
     "/about/pd/ambitie": {
       "filePath": "about/pd/ambitie.tsx"
