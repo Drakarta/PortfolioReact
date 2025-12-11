@@ -1,18 +1,36 @@
 // no runtime React import needed; react-markdown produces React elements via JSX here
 
 export function makeMDComponents(mdUrl: string) {
+  // Map relative markdown asset references (Images/*.png|jpg|svg|pdf)
+  // to the public folder so Vercel can serve them statically.
+  // This avoids relying on bundler-time imports for markdown-linked assets.
+  const toPublicAsset = (src: string): string => {
+    const s = String(src || "")
+    // allow absolute http(s), protocol-relative, data URIs and root-absolute paths
+    if (/^(https?:)?\/\//i.test(s) || s.startsWith("data:") || s.startsWith("/")) {
+      return s
+    }
+    // special-case CV link used in markdown to point to public root copy
+    if (/^\.?\/?images\/Anthony_Suhendra_CV\.pdf$/i.test(s)) {
+      return "/Anthony_Suhendra_CV.pdf"
+    }
+    // common markdown style: "Images/foo.png" or "./Images/foo.png"
+    const noDot = s.replace(/^\.\//, "")
+    if (noDot.toLowerCase().startsWith("images/")) {
+      return "/pd3/images/" + noDot.slice(7)
+    }
+    // fallback: resolve relative to the markdown file URL (works in dev if assets are colocated)
+    try {
+      return new URL(s, mdUrl).href
+    } catch {
+      return s
+    }
+  }
   return {
     // resolve relative image paths against the markdown file location
     img: (props: any) => {
-      try {
-        const src = props.src || ""
-        const isAbsolute =
-          /^(https?:)?\/\//i.test(src) || src.startsWith("data:")
-        const resolved = isAbsolute ? src : new URL(src, mdUrl).href
-        return <img {...props} src={resolved} />
-      } catch (e) {
-        return <img {...props} />
-      }
+      const resolved = toPublicAsset(props.src || "")
+      return <img {...props} src={resolved} />
     },
 
     // remap heading levels so files that use H1 become H2 on the site, H2 -> H3, etc.
@@ -84,16 +102,26 @@ export function makeMDComponents(mdUrl: string) {
       return <li className="ml-0">{props.children}</li>
     },
     // link styling: underline links from markdown for visibility
-    a: (props: any) => (
-      <a
-        {...props}
-        className={
-          (props.className ? props.className + " " : "") +
-          "text-primary underline underline-offset-2 hover:opacity-90"
-        }
-      >
-        {props.children}
-      </a>
-    ),
+    // also resolve relative hrefs (including PDFs) to public assets
+    a: (props: any) => {
+      const href = toPublicAsset(props.href || "")
+      const isExternal = /^(https?:)?\/\//i.test(href)
+      const extraProps = isExternal
+        ? { target: "_blank", rel: "noreferrer" }
+        : {}
+      return (
+        <a
+          {...props}
+          {...extraProps}
+          href={href}
+          className={
+            (props.className ? props.className + " " : "") +
+            "text-primary underline underline-offset-2 hover:opacity-90"
+          }
+        >
+          {props.children}
+        </a>
+      )
+    },
   }
 }
