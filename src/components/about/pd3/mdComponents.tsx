@@ -1,13 +1,7 @@
 // no runtime React import needed; react-markdown produces React elements via JSX here
 
 // Build-time map of images in this folder (Vite will rewrite to final URLs).
-// This ensures images referenced in markdown (Images/...) resolve after build.
-// Note: import.meta.glob's `as: 'url'` is deprecated; use `query: '?url', import: 'default'`.
-const __imageMap: Record<string, string> = import.meta.glob('./Images/*', { query: '?url', import: 'default', eager: true }) as Record<string, string>
-// also include images that live under src/assets/pd3/images (some markdown came from assets)
-const __assetsImageMap1: Record<string, string> = import.meta.glob('../../../assets/pd3/images/*', { query: '?url', import: 'default', eager: true }) as Record<string, string>
-// and try the capitalized Images folder as well just in case
-const __assetsImageMap2: Record<string, string> = import.meta.glob('../../../assets/pd3/Images/*', { query: '?url', import: 'default', eager: true }) as Record<string, string>
+const __assetsImageMap: Record<string, string> = import.meta.glob('../../../assets/pd3/images/*', { query: '?url', import: 'default', eager: true }) as Record<string, string>
 
 export function makeMDComponents(mdUrl: string) {
   // helper to resolve an asset (image/pdf) to a usable URL in dev and production
@@ -18,7 +12,7 @@ export function makeMDComponents(mdUrl: string) {
 
     // Prefer matching against the import.meta.glob *keys* (the original source paths).
     // Keys look like "../../../assets/pd3/images/Welkom.png" or "./Images/foo.png".
-    const combinedMap: Record<string, string> = Object.assign({}, __imageMap, __assetsImageMap1, __assetsImageMap2)
+    const combinedMap: Record<string, string> = Object.assign({}, __assetsImageMap)
 
     // Normalized source path from the markdown (strip leading ./ or /)
     const normalizedSrc = src.replace(/^\.\/?/, '').replace(/^\//, '')
