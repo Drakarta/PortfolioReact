@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router"
-import MarkdownRenderer from "@/components/about/MarkdownRenderer"
+import MarkdownRenderer from "@/lib/MarkdownRenderer"
 import Layout from "@/components/about/PDLayout"
 import MD from "../../../assets/pd3/4-LinkedIn_&_CV.mdx"
 

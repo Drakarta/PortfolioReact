@@ -5,7 +5,7 @@ export function MDComponents() {
   return {
     // resolve relative image paths against the markdown file location
     img: (props: any) => {
-      return <img {...props} src={props.src} />
+      return <img {...props} src={"/" + props.src} />
     },
 
     // remap heading levels so files that use H1 become H2 on the site, H2 -> H3, etc.
