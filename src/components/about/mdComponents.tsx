@@ -1,14 +1,22 @@
 // no runtime React import needed; react-markdown produces React elements via JSX here
-import { resolveMdAssetPath } from "@/lib/mdAssets"
+// Using public/ assets: resolve markdown image/PDF paths to /images/* served by Vercel
 
 export function makeMDComponents(mdUrl: string) {
-  // Resolve markdown-linked assets using import-time map first (hashed URLs),
-  // then fall back to resolving relative to the markdown file URL (dev-friendly).
+  // Resolve to public paths: /images/* for images and /Anthony_Suhendra_CV.pdf for the CV.
   const resolveAsset = (src: string): string => {
     const s = String(src || "")
     if (/^(https?:)?\/\//i.test(s) || s.startsWith("data:")) return s
-    const imported = resolveMdAssetPath(s)
-    if (imported) return imported
+    // normalize ./ prefix
+    const noDot = s.replace(/^\.\//, "")
+    const lc = noDot.toLowerCase()
+    // CV special case referenced in markdown
+    if (lc === "images/anthony_suhendra_cv.pdf" || lc === "anthony_suhendra_cv.pdf") {
+      return "/Anthony_Suhendra_CV.pdf"
+    }
+    // images or image folder => map to public /images/*
+    if (lc.startsWith("images/")) return `/images/${noDot.slice(7)}`
+    if (lc.startsWith("image/")) return `/images/${noDot.slice(6)}`
+    // otherwise try to resolve relative to md file (dev fallback)
     try {
       return new URL(s, mdUrl).href
     } catch {
@@ -90,8 +98,8 @@ export function makeMDComponents(mdUrl: string) {
 
       return <li className="ml-0">{props.children}</li>
     },
-    // link styling: underline links from markdown for visibility
-    // also resolve relative hrefs (including PDFs/images) via import map
+  // link styling: underline links from markdown for visibility
+  // also resolve relative hrefs (including PDFs/images) to public paths
     a: (props: any) => {
       const href = resolveAsset(props.href || "")
       const isExternal = /^(https?:)?\/\//i.test(href)

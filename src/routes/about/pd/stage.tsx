@@ -38,7 +38,7 @@ function RouteComponent() {
 
   return (
     <Layout>
-      <MarkdownRenderer md={md ?? ""} mdUrl={mdUrl} />
+      <MarkdownRenderer md={md ?? ""} />
     </Layout>
   )
 }
