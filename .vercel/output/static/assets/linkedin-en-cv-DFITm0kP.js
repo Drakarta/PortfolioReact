@@ -1,4 +1,4 @@
-import{j as e}from"./index-DHxDqPtg.js";import{u as t,L as a,M as o}from"./PDLayout-BzxYhtPs.js";import"./index-B0jpF2zr.js";function r(i){const n={a:"a",em:"em",h1:"h1",h2:"h2",h3:"h3",h4:"h4",img:"img",li:"li",ol:"ol",p:"p",strong:"strong",ul:"ul",...t(),...i.components};return e.jsxs(e.Fragment,{children:[e.jsx(n.h1,{children:"LinkedIn & CV"}),`
+import{j as e}from"./index-BRd14xoX.js";import{u as t,L as a,M as o}from"./PDLayout-h0CLOULp.js";import"./index-xxOaWOQN.js";function r(i){const n={a:"a",em:"em",h1:"h1",h2:"h2",h3:"h3",h4:"h4",img:"img",li:"li",ol:"ol",p:"p",strong:"strong",ul:"ul",...t(),...i.components};return e.jsxs(e.Fragment,{children:[e.jsx(n.h1,{children:"LinkedIn & CV"}),`
 `,e.jsx(n.h2,{children:"LinkedIn"}),`
 `,e.jsxs(n.ul,{children:[`
 `,e.jsxs(n.li,{children:["Werk je professionele kopregel bij om je huidige studierichting en carrièredoelen duidelijk te maken. Bijvoorbeeld:",`
@@ -8,7 +8,7 @@ import{j as e}from"./index-DHxDqPtg.js";import{u as t,L as a,M as o}from"./PDLay
 `]}),`
 `]}),`
 `]}),`
-`,e.jsx(n.p,{children:e.jsx(n.img,{src:"/images/LinkedIn.png",alt:"LinkedIn"})}),`
+`,e.jsx(n.p,{children:e.jsx(n.img,{src:"images/LinkedIn.png",alt:"LinkedIn"})}),`
 `,e.jsx(n.p,{children:e.jsx(n.a,{href:"https://www.linkedin.com/in/anthony-suhendra/",children:"LinkedIn profiel"})}),`
 `,e.jsx(n.h2,{children:"Samenvatting"}),`
 `,e.jsx(n.p,{children:"Schrijf een beknopte samenvatting waarin je je achtergrond, je huidige doelen en je ambities beschrijft. Gebruik sleutelwoorden die relevant zijn voor de stages die je zoekt. Het kan helpen eerst vraag 2 en 3 door te lopen voordat je een samenvatting maakt omdat je dan wellicht een beter beeld hebt van je stagedoelen."}),`
@@ -31,7 +31,7 @@ import{j as e}from"./index-DHxDqPtg.js";import{u as t,L as a,M as o}from"./PDLay
 `]}),`
 `]}),`
 `,e.jsx(n.h2,{children:"Opdracht 1B: CV"}),`
-`,e.jsx(n.p,{children:e.jsx(n.a,{href:"/images/Anthony_Suhendra_CV.pdf",children:"Anthony_Suhendra_CV.pdf"})}),`
+`,e.jsx(n.p,{children:e.jsx(n.img,{src:"images/Anthony_Suhendra_CV.png",alt:"Anthony_Suhendra_CV.png"})}),`
 `,e.jsx(n.h2,{children:"Opdracht 2A: Stage oriëntatie"}),`
 `,e.jsx(n.h3,{children:"Soort organisatie"}),`
 `,e.jsxs(n.ul,{children:[`
@@ -130,7 +130,7 @@ import{j as e}from"./index-DHxDqPtg.js";import{u as t,L as a,M as o}from"./PDLay
 `,e.jsx(n.h2,{children:"Opdracht 3: Vacatures zoeken"}),`
 `,e.jsx(n.p,{children:"Ga op zoek naar vacatures van functies/banen (stages) die jou interessant lijken. Zorg ervoor dat 2 van de vacatures een vacature is waar jij op kunt solliciteren voor je stage. De andere kan ook een afstudeerstage vacature zijn of een vacature voor een baan waar je nog niet de juiste kwalificaties voor hebt maar waar je ambieert naartoe te werken. Geef per vacature aan welke zoektermen je hebt gebruikt en wat je aanspreekt in de vacature. Voeg in je portfolio ook screenshots toe van de vacatures."}),`
 `,e.jsx(n.h3,{children:"Vacature 1"}),`
-`,e.jsx(n.p,{children:e.jsx(n.img,{src:"/images/Capgemini1.png",alt:"Capgemini 1"})}),`
+`,e.jsx(n.p,{children:e.jsx(n.img,{src:"images/Capgemini1.png",alt:"Capgemini 1"})}),`
 `,e.jsxs(n.ul,{children:[`
 `,e.jsxs(n.li,{children:["Welke zoektermen heb je gebruikt?",`
 `,e.jsxs(n.ul,{children:[`
@@ -144,7 +144,7 @@ import{j as e}from"./index-DHxDqPtg.js";import{u as t,L as a,M as o}from"./PDLay
 `]}),`
 `]}),`
 `,e.jsx(n.h3,{children:"Vacature 2"}),`
-`,e.jsx(n.p,{children:e.jsx(n.img,{src:"/images/Amazon.png",alt:"Amazon"})}),`
+`,e.jsx(n.p,{children:e.jsx(n.img,{src:"images/Amazon.png",alt:"Amazon"})}),`
 `,e.jsxs(n.ul,{children:[`
 `,e.jsxs(n.li,{children:["Welke zoektermen heb je gebruikt?",`
 `,e.jsxs(n.ul,{children:[`
@@ -158,7 +158,7 @@ import{j as e}from"./index-DHxDqPtg.js";import{u as t,L as a,M as o}from"./PDLay
 `]}),`
 `]}),`
 `,e.jsx(n.h3,{children:"Vacature 3"}),`
-`,e.jsx(n.p,{children:e.jsx(n.img,{src:"/images/Harbour.png",alt:"Harbour"})}),`
+`,e.jsx(n.p,{children:e.jsx(n.img,{src:"images/Harbour.png",alt:"Harbour"})}),`
 `,e.jsxs(n.ul,{children:[`
 `,e.jsxs(n.li,{children:["Welke zoektermen heb je gebruikt?",`
 `,e.jsxs(n.ul,{children:[`

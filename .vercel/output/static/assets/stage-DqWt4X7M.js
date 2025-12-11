@@ -1,4 +1,4 @@
-import{j as e}from"./index-DHxDqPtg.js";import{u as i,L as l,M as t}from"./PDLayout-BzxYhtPs.js";import"./index-B0jpF2zr.js";function r(s){const n={a:"a",h1:"h1",h2:"h2",h3:"h3",li:"li",p:"p",strong:"strong",ul:"ul",...i(),...s.components};return e.jsxs(e.Fragment,{children:[e.jsx(n.h1,{children:"Stage"}),`
+import{j as e}from"./index-BRd14xoX.js";import{u as i,L as l,M as t}from"./PDLayout-h0CLOULp.js";import"./index-xxOaWOQN.js";function r(s){const n={a:"a",h1:"h1",h2:"h2",h3:"h3",li:"li",p:"p",strong:"strong",ul:"ul",...i(),...s.components};return e.jsxs(e.Fragment,{children:[e.jsx(n.h1,{children:"Stage"}),`
 `,e.jsx(n.h2,{children:e.jsx(n.strong,{children:"Zoek de volgende informatie"})}),`
 `,e.jsx(n.h3,{children:e.jsx(n.strong,{children:"Waar vind je de stagehandleiding?"})}),`
 `,e.jsxs(n.ul,{children:[`

@@ -1,4 +1,4 @@
-import{j as e}from"./index-DHxDqPtg.js";import{u as a,L as t,M as o}from"./PDLayout-BzxYhtPs.js";import"./index-B0jpF2zr.js";function r(i){const n={em:"em",h1:"h1",h2:"h2",h3:"h3",img:"img",li:"li",ol:"ol",p:"p",strong:"strong",ul:"ul",...a(),...i.components};return e.jsxs(e.Fragment,{children:[e.jsx(n.h1,{children:"Ambitie"}),`
+import{j as e}from"./index-BRd14xoX.js";import{u as a,L as t,M as o}from"./PDLayout-h0CLOULp.js";import"./index-xxOaWOQN.js";function r(i){const n={em:"em",h1:"h1",h2:"h2",h3:"h3",img:"img",li:"li",ol:"ol",p:"p",strong:"strong",ul:"ul",...a(),...i.components};return e.jsxs(e.Fragment,{children:[e.jsx(n.h1,{children:"Ambitie"}),`
 `,e.jsx(n.h2,{children:e.jsx(n.strong,{children:"Opdracht 1: wat betekent ambitie voor jou"})}),`
 `,e.jsxs(n.ol,{children:[`
 `,e.jsxs(n.li,{children:[`
@@ -135,4 +135,4 @@ Netwerk vergroten`}),`
 `]}),`
 `]}),`
 `,e.jsxs(n.p,{children:[e.jsx(n.strong,{children:"Maak een tijdslijn van jouw korte, langere en lange termijn doelen en verwerk de opdracht in je portfolio."}),`
-`,e.jsx(n.img,{src:"/images/Ambitie.png",alt:"Ambitie"})]})]})}function l(i={}){const{wrapper:n}={...a(),...i.components};return n?e.jsx(n,{...i,children:e.jsx(r,{...i})}):r(i)}const h=function(){return e.jsx(t,{children:e.jsx(o,{children:e.jsx(l,{})})})};export{h as component};
+`,e.jsx(n.img,{src:"images/Ambitie.png",alt:"Ambitie"})]})]})}function l(i={}){const{wrapper:n}={...a(),...i.components};return n?e.jsx(n,{...i,children:e.jsx(r,{...i})}):r(i)}const h=function(){return e.jsx(t,{children:e.jsx(o,{children:e.jsx(l,{})})})};export{h as component};
