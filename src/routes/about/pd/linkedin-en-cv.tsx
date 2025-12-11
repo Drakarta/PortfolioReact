@@ -14,10 +14,8 @@ export const Route = createFileRoute("/about/pd/linkedin-en-cv")({
   component: RouteComponent,
 })
 
-const mdUrl = new URL(
-  "../../../assets/pd3/4-LinkedIn_&_CV.md",
-  import.meta.url,
-).href
+const mdUrl = new URL("../../../assets/pd3/4-LinkedIn_&_CV.md", import.meta.url)
+  .href
 
 function RouteComponent() {
   const {
