@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { useQuery } from "@tanstack/react-query"
-import MarkdownRenderer from "@/components/about/pd3/MarkdownRenderer"
-import Layout from "@/components/about/pd3/PDLayout"
+import MarkdownRenderer from "@/components/about/MarkdownRenderer"
+import Layout from "@/components/about/PDLayout"
 
 export const Route = createFileRoute("/about/pd/stage")({
   head: () => ({
@@ -15,7 +15,7 @@ export const Route = createFileRoute("/about/pd/stage")({
 })
 
 const mdUrl = new URL(
-  "../../../components/about/pd3/2-Stage.md",
+  "../../../assets/pd3/2-Stage.md",
   import.meta.url,
 ).href
 

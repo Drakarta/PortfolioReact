@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { useQuery } from "@tanstack/react-query"
-import MarkdownRenderer from "@/components/about/pd3/MarkdownRenderer"
-import Layout from "@/components/about/pd3/PDLayout"
+import MarkdownRenderer from "@/components/about/MarkdownRenderer"
+import Layout from "@/components/about/PDLayout"
 
 export const Route = createFileRoute("/about/pd/hboi-event")({
   head: () => ({
@@ -15,7 +15,7 @@ export const Route = createFileRoute("/about/pd/hboi-event")({
 })
 
 const mdUrl = new URL(
-  "../../../components/about/pd3/1-HBO-I_Event.md",
+  "../../../assets/pd3/1-HBO-I_Event.md",
   import.meta.url,
 ).href
 
