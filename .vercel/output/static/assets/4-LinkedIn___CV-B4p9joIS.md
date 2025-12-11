@@ -6,7 +6,7 @@
   - Student Innovative Development met een passie voor technische innovatie en duurzame oplossingen.
   - HBO-ICT student, gespecialiseerd in fullstack development, met een sterke interesse in softwareontwikkeling en applicatiebouw.
 
-![LinkedIn](images/LinkedIn.png)
+![LinkedIn](Images/LinkedIn.png)
 
 [LinkedIn profiel](https://www.linkedin.com/in/anthony-suhendra/)
 
@@ -28,7 +28,7 @@ Motivated Software Engineering student skilled in frontend and backend developme
 
 ## Opdracht 1B: CV
 
-[Anthony_Suhendra_CV.pdf](images/Anthony_Suhendra_CV.pdf)
+[Anthony_Suhendra_CV.pdf](Images/Anthony_Suhendra_CV.pdf)
 
 ## Opdracht 2A: Stage oriëntatie
 
@@ -93,7 +93,7 @@ Ga op zoek naar vacatures van functies/banen (stages) die jou interessant lijken
 
 ### Vacature 1
 
-![Capgemini 1](images/Capgemini1.png)
+![Capgemini 1](Images/Capgemini1.png)
 
 - Welke zoektermen heb je gebruikt?
   - Software Engineer Stage op Indeed.com
@@ -102,7 +102,7 @@ Ga op zoek naar vacatures van functies/banen (stages) die jou interessant lijken
 
 ### Vacature 2
 
-![Amazon](images/Amazon.png)
+![Amazon](Images/Amazon.png)
 
 - Welke zoektermen heb je gebruikt?
   - Software Engineer Intern op LinkedIn
@@ -111,7 +111,7 @@ Ga op zoek naar vacatures van functies/banen (stages) die jou interessant lijken
 
 ### Vacature 3
 
-![Harbour](images/Harbour.png)
+![Harbour](Images/Harbour.png)
 
 - Welke zoektermen heb je gebruikt?
   - Software Engineer Intern op LinkedIn
