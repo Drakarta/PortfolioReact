@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { useQuery } from "@tanstack/react-query"
 import MarkdownRenderer from "@/components/about/MarkdownRenderer"
 import Layout from "@/components/about/PDLayout"
+import MD from "../../../assets/pd3/2-Stage.mdx"
 
 export const Route = createFileRoute("/about/pd/stage")({
   head: () => ({
@@ -14,31 +14,12 @@ export const Route = createFileRoute("/about/pd/stage")({
   component: RouteComponent,
 })
 
-const mdUrl = new URL(
-  "../../../assets/pd3/2-Stage.md",
-  import.meta.url,
-).href
-
 function RouteComponent() {
-  const {
-    data: md,
-    isLoading,
-    error,
-  } = useQuery<string, Error>({
-    queryKey: ["markdown", "stage"],
-    queryFn: async () => {
-      const res = await fetch(mdUrl)
-      if (!res.ok) throw new Error("Failed to fetch markdown")
-      return res.text()
-    },
-  })
-
-  if (isLoading) return <div>Loading...</div>
-  if (error) return <div>Failed to load content.</div>
-
   return (
     <Layout>
-      <MarkdownRenderer md={md ?? ""} />
+      <MarkdownRenderer>
+        <MD />
+      </MarkdownRenderer>
     </Layout>
   )
 }

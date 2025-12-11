@@ -1,33 +1,11 @@
 // no runtime React import needed; react-markdown produces React elements via JSX here
 // Using public/ assets: resolve markdown image/PDF paths to /images/* served by Vercel
 
-export function makeMDComponents(mdUrl: string) {
-  // Resolve to public paths: /images/* for images and /Anthony_Suhendra_CV.pdf for the CV.
-  const resolveAsset = (src: string): string => {
-    const s = String(src || "")
-    if (/^(https?:)?\/\//i.test(s) || s.startsWith("data:")) return s
-    // normalize ./ prefix
-    const noDot = s.replace(/^\.\//, "")
-    const lc = noDot.toLowerCase()
-    // CV special case referenced in markdown
-    if (lc === "images/anthony_suhendra_cv.pdf" || lc === "anthony_suhendra_cv.pdf") {
-      return "/Anthony_Suhendra_CV.pdf"
-    }
-    // images or image folder => map to public /images/*
-    if (lc.startsWith("images/")) return `/images/${noDot.slice(7)}`
-    if (lc.startsWith("image/")) return `/images/${noDot.slice(6)}`
-    // otherwise try to resolve relative to md file (dev fallback)
-    try {
-      return new URL(s, mdUrl).href
-    } catch {
-      return s
-    }
-  }
+export function MDComponents() {
   return {
     // resolve relative image paths against the markdown file location
     img: (props: any) => {
-      const resolved = resolveAsset(props.src || "")
-      return <img {...props} src={resolved} />
+      return <img {...props} src={props.src} />
     },
 
     // remap heading levels so files that use H1 become H2 on the site, H2 -> H3, etc.
@@ -99,26 +77,16 @@ export function makeMDComponents(mdUrl: string) {
       return <li className="ml-0">{props.children}</li>
     },
   // link styling: underline links from markdown for visibility
-  // also resolve relative hrefs (including PDFs/images) to public paths
-    a: (props: any) => {
-      const href = resolveAsset(props.href || "")
-      const isExternal = /^(https?:)?\/\//i.test(href)
-      const extraProps = isExternal
-        ? { target: "_blank", rel: "noreferrer" }
-        : {}
-      return (
-        <a
-          {...props}
-          {...extraProps}
-          href={href}
-          className={
-            (props.className ? props.className + " " : "") +
-            "text-primary underline underline-offset-2 hover:opacity-90"
-          }
-        >
-          {props.children}
-        </a>
-      )
-    },
+    a: (props: any) => (
+      <a
+        {...props}
+        className={
+          (props.className ? props.className + " " : "") +
+          "text-primary underline underline-offset-2 hover:opacity-90"
+        }
+      >
+        {props.children}
+      </a>
+    ),
   }
 }

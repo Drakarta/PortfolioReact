@@ -1,14 +1,17 @@
-import ReactMarkdown from "react-markdown"
-// import remarkGfm from "remark-gfm"
-// import { makeMDComponents } from "./mdComponents"
+import { MDXProvider } from "@mdx-js/react"
+import { MDComponents } from "./mdComponents"
 
-export default function MarkdownRenderer({ md  }: { md: string }) {
+type Props = {
+  children: React.ReactNode
+  mdUrl?: string
+}
+
+// MDX-ready renderer: pass compiled MDX as children (from importing .mdx files)
+// and optional mdUrl for resolving relative asset links in markdown.
+export default function MarkdownRenderer({ children }: Props) {
   return (
-    <ReactMarkdown
-      // remarkPlugins={[remarkGfm]}
-      // components={makeMDComponents(mdUrl)}
-    >
-      {md}
-    </ReactMarkdown>
+    <MDXProvider components={MDComponents()}>
+      {children}
+    </MDXProvider>
   )
 }
