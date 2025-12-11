@@ -14,10 +14,14 @@ export function makeMDComponents(mdUrl: string) {
     if (/^\.?\/?images\/Anthony_Suhendra_CV\.pdf$/i.test(s)) {
       return "/Anthony_Suhendra_CV.pdf"
     }
-    // common markdown style: "Images/foo.png" or "./Images/foo.png"
+    // common markdown style: "Images/foo.png", "Image/foo.png", or their lowercase variants
     const noDot = s.replace(/^\.\//, "")
-    if (noDot.toLowerCase().startsWith("images/")) {
+    const lc = noDot.toLowerCase()
+    if (lc.startsWith("images/")) {
       return "/pd3/images/" + noDot.slice(7)
+    }
+    if (lc.startsWith("image/")) {
+      return "/pd3/images/" + noDot.slice(6)
     }
     // fallback: resolve relative to the markdown file URL (works in dev if assets are colocated)
     try {
