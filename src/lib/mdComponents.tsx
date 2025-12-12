@@ -76,7 +76,7 @@ export function MDComponents() {
 
       return <li className="ml-0">{props.children}</li>
     },
-  // link styling: underline links from markdown for visibility
+    // link styling: underline links from markdown for visibility
     a: (props: any) => (
       <a
         {...props}

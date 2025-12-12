@@ -3,6 +3,7 @@ import { defineConfig } from "vite"
 import react from "@vitejs/plugin-react-swc"
 import { TanStackRouterVite } from "@tanstack/router-plugin/vite"
 import mdx from "@mdx-js/rollup"
+import remarkGfm from "remark-gfm"
 import tailwindcss from "@tailwindcss/vite"
 import vercel from 'vite-plugin-vercel';
 
@@ -10,7 +11,10 @@ import vercel from 'vite-plugin-vercel';
 export default defineConfig({
   plugins: [
     // MDX must run before React so MDX is compiled to JSX first
-    mdx({ providerImportSource: "@mdx-js/react" }),
+    mdx({ 
+      providerImportSource: "@mdx-js/react",
+      remarkPlugins: [remarkGfm],
+    }),
     react(),
     tailwindcss(),
     vercel(),
